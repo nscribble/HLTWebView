@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>JavaScriptBridge</title>
+<script type="text/javascript">
+function setupJavascriptBridge(callback) {
+	if (window.JSBridge) { return callback(JSBridge); }
+	if (window.JSBSetupCallbacks) { return window.JSBSetupCallbacks.push(callback); }
+	window.JSBSetupCallbacks = [callback];
+}
+</script>
+</head>
+<body>
+<script type="text/javascript">
+	setupJavascriptBridge(function(bridge) {
+	/* Initialize your app here */
+                          
+	bridge.registerEventHandler('event-provide-info', function (event, reqData, respCallback) {
+		console.log('native->js request: ' + event + ', with data: ' + reqData);
+		if (respCallback) {
+			var respToNative = {'code': 0, 'title': 'Hey!!'}
+			respCallback(respToNative)
+		}
+	})
+
+	bridge.sendMessage('event-request-info', {'param-key': 'param-value'}, function (respFromNative) {
+		console.log('recv response from native: ' + respFromNative)
+	})
+})
+</script>
+</body>
+</html>

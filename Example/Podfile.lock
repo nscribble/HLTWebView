@@ -1,0 +1,31 @@
+PODS:
+  - HLTWebView (0.1.2):
+    - HLTWebView/JavaScriptBridge (= 0.1.2)
+    - HLTWebView/non-arc (= 0.1.2)
+    - HLTWebView/WebView (= 0.1.2)
+  - HLTWebView/JavaScriptBridge (0.1.2)
+  - HLTWebView/non-arc (0.1.2)
+  - HLTWebView/WebView (0.1.2):
+    - HLTWebView/JavaScriptBridge
+    - HLTWebView/non-arc
+  - Kiwi (3.0.0)
+
+DEPENDENCIES:
+  - HLTWebView (from `../`)
+  - Kiwi
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Kiwi
+
+EXTERNAL SOURCES:
+  HLTWebView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  HLTWebView: 850f397d7af31c3e31a9caaddf8fdd8187dbee1f
+  Kiwi: fbeafef0f00e4d8f7dcb3420a4930afe70af77f7
+
+PODFILE CHECKSUM: d11a082c263c1ed19165f6a256598b3da9cc3b41
+
+COCOAPODS: 1.11.3
